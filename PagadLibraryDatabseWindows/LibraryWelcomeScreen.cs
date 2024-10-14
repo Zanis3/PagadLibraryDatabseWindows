@@ -33,7 +33,16 @@ namespace PagadLibraryDatabseWindows
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            string title, message;
+            title = "Go Back?";
+            message = "Are you sure you want to exit the program?";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            MessageBoxIcon icon = MessageBoxIcon.Question;
+            DialogResult result = MessageBox.Show(message, title, buttons, icon);
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
     }
 }

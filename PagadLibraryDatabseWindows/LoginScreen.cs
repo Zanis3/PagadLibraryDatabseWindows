@@ -16,5 +16,26 @@ namespace PagadLibraryDatabseWindows
         {
             InitializeComponent();
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            string title, message;
+            title = "Go Back?";
+            message = "Are you sure you want to go back?";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            MessageBoxIcon icon = MessageBoxIcon.Question;
+            DialogResult result = MessageBox.Show(message, title, buttons, icon);
+            if (result == DialogResult.Yes)
+            {
+                LibraryWelcomeScreen welcome = new LibraryWelcomeScreen();
+                welcome.Show();
+                this.Close();
+            }
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
