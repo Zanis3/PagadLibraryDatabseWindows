@@ -30,11 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminScreen));
             this.pnlAdminOptions = new System.Windows.Forms.Panel();
+            this.lblWelcomeText = new System.Windows.Forms.Label();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.btnAdminAccountOptions = new System.Windows.Forms.Button();
             this.btnAdminBookOptions = new System.Windows.Forms.Button();
-            this.btnLogout = new System.Windows.Forms.Button();
             this.pnllTransparent = new System.Windows.Forms.Panel();
-            this.lblWelcomeText = new System.Windows.Forms.Label();
             this.pnlAdminOptions.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,6 +49,30 @@
             this.pnlAdminOptions.Name = "pnlAdminOptions";
             this.pnlAdminOptions.Size = new System.Drawing.Size(779, 455);
             this.pnlAdminOptions.TabIndex = 0;
+            // 
+            // lblWelcomeText
+            // 
+            this.lblWelcomeText.AutoSize = true;
+            this.lblWelcomeText.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWelcomeText.Location = new System.Drawing.Point(26, 31);
+            this.lblWelcomeText.Name = "lblWelcomeText";
+            this.lblWelcomeText.Size = new System.Drawing.Size(255, 55);
+            this.lblWelcomeText.TabIndex = 10;
+            this.lblWelcomeText.Text = "Good day,";
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.BackColor = System.Drawing.Color.IndianRed;
+            this.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnLogout.Location = new System.Drawing.Point(613, 388);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(150, 50);
+            this.btnLogout.TabIndex = 9;
+            this.btnLogout.Text = ">> LOGOUT";
+            this.btnLogout.UseVisualStyleBackColor = false;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // btnAdminAccountOptions
             // 
@@ -71,22 +95,9 @@
             this.btnAdminBookOptions.Name = "btnAdminBookOptions";
             this.btnAdminBookOptions.Size = new System.Drawing.Size(200, 200);
             this.btnAdminBookOptions.TabIndex = 0;
+            this.btnAdminBookOptions.Text = " ";
             this.btnAdminBookOptions.UseVisualStyleBackColor = false;
             this.btnAdminBookOptions.Click += new System.EventHandler(this.btnAdminBookOptions_Click);
-            // 
-            // btnLogout
-            // 
-            this.btnLogout.BackColor = System.Drawing.Color.IndianRed;
-            this.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogout.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnLogout.Location = new System.Drawing.Point(613, 388);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(150, 50);
-            this.btnLogout.TabIndex = 9;
-            this.btnLogout.Text = ">> LOGOUT";
-            this.btnLogout.UseVisualStyleBackColor = false;
-            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // pnllTransparent
             // 
@@ -94,16 +105,6 @@
             this.pnllTransparent.Name = "pnllTransparent";
             this.pnllTransparent.Size = new System.Drawing.Size(1022, 567);
             this.pnllTransparent.TabIndex = 3;
-            // 
-            // lblWelcomeText
-            // 
-            this.lblWelcomeText.AutoSize = true;
-            this.lblWelcomeText.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWelcomeText.Location = new System.Drawing.Point(26, 31);
-            this.lblWelcomeText.Name = "lblWelcomeText";
-            this.lblWelcomeText.Size = new System.Drawing.Size(255, 55);
-            this.lblWelcomeText.TabIndex = 10;
-            this.lblWelcomeText.Text = "Good day,";
             // 
             // AdminScreen
             // 

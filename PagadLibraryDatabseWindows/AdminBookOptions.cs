@@ -16,5 +16,47 @@ namespace PagadLibraryDatabseWindows
         {
             InitializeComponent();
         }
+
+        private void addUserControls(UserControl userControl)
+        {
+            userControl.Dock = DockStyle.Fill;
+            pnlContainer.Controls.Clear();
+            pnlContainer.Controls.Add(userControl);
+            userControl.BringToFront();
+        }
+
+        private void btnAddBook_Click(object sender, EventArgs e)
+        {
+            UCAdminAddBook addBook = new UCAdminAddBook();
+            addUserControls(addBook);
+        }
+
+        private void btnRemoveBook_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEditBook_Click(object sender, EventArgs e)
+        {
+            UCAdminEditBook editBook = new UCAdminEditBook();
+            addUserControls(editBook);
+        }
+
+        private void btnViewBook_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to go back?", "Go Back?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                AdminScreen adminScreen = new AdminScreen();
+                adminScreen.Show();
+                this.Close();
+            }
+        }
     }
 }

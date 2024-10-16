@@ -121,7 +121,7 @@
   <data name="btnAdminAccountOptions.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAADPRJREFUeF7tncGO5EYOBcc+2AeffPDJB9sYwHuyxz+w//9Zu8rdFsBOBZmZkkpi
+        wQAADsEBuJFr7QAADPRJREFUeF7tncGO5EYOBcc+2AeffPDJB9sYwHuyxz+w//9Zu8rdFsBOBZmZkkpi
         ll4AgZ0iX6rYVA0a6+6p+iKEEEIIIYQQQgjxBP7zIoWYiq+Lfy7Si/kKy3OXGYRIw7dFerFmsMwmxOXQ
         i3EGhXgZvy7Si25Gy9cixCnQC+ydFGKYnxbpxfTOlq9ZiJAfFunF8yTLDoT4xPeL9GJ5smUnQnz5Y5Fe
         IJfpQdmLLbsRD+WXRXpRvMyzoGu/2LIr8SDoRXCad0GznKx4c35epBt/ilmg2U5UvCl/L9IN3+0s0OwH
@@ -182,7 +182,7 @@
   <data name="btnAdminBookOptions.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAADNxJREFUeF7tnQ2zJDUVhlcB+RJERAUWVhQtBXUXP0sLUeH//yfNmeree+6ZN+mk
+        vAAADrwBlbxySQAADNxJREFUeF7tnQ2zJDUVhlcB+RJERAUWVhQtBXUXP0sLUeH//yfNmeree+6ZN+mk
         Ox8n3e9T9RRs8iY5yZ2+u3PvzPQTQgghhBBCCCGEEEIIIYQQQggh5+WL4P+M3wUJuQyvBu1FUOL3goRM
         zStB9OCu7d+ChLhELoJPg+iBO8I/BAnpyg+C7wbRA9KznwQJqcbT4J+C6MF2BglJ8v2gfFd9FkQPoCtJ
         Loo8J/hh8NsgemDQe98KkomRH2muP9aUvwXeDL4RRF9sesxfB/V5EyfIE2H5zv/2ojwp/jD4dRB9IWl7

@@ -40,6 +40,7 @@ namespace PagadLibraryDatabseWindows
 
             if(logoutConfirm == DialogResult.Yes)
             {
+                Extra.log($"{Session.sessionUserType} '{Session.sessionUsername}' has logged out their account.");
                 Session.sessionUsername = null;
                 Session.sessionUserType = null;
                 LibraryWelcomeScreen logout = new LibraryWelcomeScreen();

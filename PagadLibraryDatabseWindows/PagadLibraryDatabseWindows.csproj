@@ -109,12 +109,27 @@
     <Compile Include="RegisterScreen.Designer.cs">
       <DependentUpon>RegisterScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCAdminAddBook.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCAdminAddBook.Designer.cs">
+      <DependentUpon>UCAdminAddBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCAdminEditBook.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCAdminEditBook.Designer.cs">
+      <DependentUpon>UCAdminEditBook.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserScreen.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UserScreen.Designer.cs">
       <DependentUpon>UserScreen.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AdminBookOptions.resx">
+      <DependentUpon>AdminBookOptions.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminScreen.resx">
       <DependentUpon>AdminScreen.cs</DependentUpon>
     </EmbeddedResource>
@@ -131,6 +146,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RegisterScreen.resx">
       <DependentUpon>RegisterScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCAdminAddBook.resx">
+      <DependentUpon>UCAdminAddBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCAdminEditBook.resx">
+      <DependentUpon>UCAdminEditBook.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserScreen.resx">
       <DependentUpon>UserScreen.cs</DependentUpon>
