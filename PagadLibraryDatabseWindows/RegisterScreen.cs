@@ -17,6 +17,7 @@ namespace PagadLibraryDatabseWindows
         public RegisterScreen()
         {
             InitializeComponent();
+            pnllTransparent.BackColor = Color.FromArgb(128, 0, 0, 0);
         }
 
         public RegisterScreen(string username)
@@ -43,7 +44,8 @@ namespace PagadLibraryDatabseWindows
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\USER\source\repos\PagadLibraryDatabseWindows\PagadLibraryDatabseWindows\PagadLibraryApplicationDatabase.mdf;Integrated Security=True;Connect Timeout=30");
+            SqlConnection conn = new SqlConnection(Extra.connectionString);
+
             int counter = 0;
             string title, message;
 
@@ -177,6 +179,7 @@ namespace PagadLibraryDatabseWindows
 
                     executeReg.ExecuteNonQuery();
 
+                    Extra.log($"{userType} '{username}' registered an account.");
                     MessageBox.Show("Account registered! Please login to access your account.", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch(Exception ex)

@@ -17,6 +17,7 @@ namespace PagadLibraryDatabseWindows
         public LoginScreen()
         {
             InitializeComponent();
+            pnllTransparent.BackColor = Color.FromArgb(128, 0, 0, 0);
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -37,7 +38,7 @@ namespace PagadLibraryDatabseWindows
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\USER\source\repos\PagadLibraryDatabseWindows\PagadLibraryDatabseWindows\PagadLibraryApplicationDatabase.mdf;Integrated Security=True;Connect Timeout=30");
+            SqlConnection conn = new SqlConnection(Extra.connectionString);
 
             //IF USERNAME IS NOT EMPTY
             if (txtUsername.Text != null)
@@ -66,6 +67,11 @@ namespace PagadLibraryDatabseWindows
                         }
                         else
                         {
+                            Session.sessionUsername = txtUsername.Text;
+                            Session.sessionUserType = userType;
+
+                            Extra.log($"{userType} '{txtUsername.Text}' logged into their account.");
+
                             if(userType == "user")
                             {
                                 UserScreen user = new UserScreen();

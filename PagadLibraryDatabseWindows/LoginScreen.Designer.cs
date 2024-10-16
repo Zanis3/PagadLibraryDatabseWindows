@@ -36,6 +36,7 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.lblUsername = new System.Windows.Forms.Label();
             this.txtUsername = new System.Windows.Forms.TextBox();
+            this.pnllTransparent = new System.Windows.Forms.Panel();
             this.pnlLogin.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -128,6 +129,13 @@
             this.txtUsername.Size = new System.Drawing.Size(325, 26);
             this.txtUsername.TabIndex = 9;
             // 
+            // pnllTransparent
+            // 
+            this.pnllTransparent.Location = new System.Drawing.Point(-7, -3);
+            this.pnllTransparent.Name = "pnllTransparent";
+            this.pnllTransparent.Size = new System.Drawing.Size(1022, 567);
+            this.pnllTransparent.TabIndex = 2;
+            // 
             // LoginScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -135,6 +143,7 @@
             this.BackgroundImage = global::PagadLibraryDatabseWindows.Properties.Resources.loginreegister;
             this.ClientSize = new System.Drawing.Size(1008, 561);
             this.Controls.Add(this.pnlLogin);
+            this.Controls.Add(this.pnllTransparent);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "LoginScreen";
@@ -156,5 +165,6 @@
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.Panel pnllTransparent;
     }
 }
