@@ -33,7 +33,8 @@ namespace PagadLibraryDatabseWindows
 
         private void btnRemoveBook_Click(object sender, EventArgs e)
         {
-
+            UCAdminRemoveBook removeBook = new UCAdminRemoveBook();
+            addUserControls(removeBook);
         }
 
         private void btnEditBook_Click(object sender, EventArgs e)
@@ -44,7 +45,8 @@ namespace PagadLibraryDatabseWindows
 
         private void btnViewBook_Click(object sender, EventArgs e)
         {
-
+            UCAdminViewBook viewBook = new UCAdminViewBook();
+            addUserControls(viewBook);
         }
 
         private void btnBack_Click(object sender, EventArgs e)

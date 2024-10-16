@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.lblEditBook = new System.Windows.Forms.Label();
+            this.pagadLibraryApplicationDatabaseDataSet = new PagadLibraryDatabseWindows.PagadLibraryApplicationDatabaseDataSet();
+            ((System.ComponentModel.ISupportInitialize)(this.pagadLibraryApplicationDatabaseDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // lblEditBook
@@ -41,6 +43,11 @@
             this.lblEditBook.TabIndex = 2;
             this.lblEditBook.Text = "Edit Book";
             // 
+            // pagadLibraryApplicationDatabaseDataSet
+            // 
+            this.pagadLibraryApplicationDatabaseDataSet.DataSetName = "PagadLibraryApplicationDatabaseDataSet";
+            this.pagadLibraryApplicationDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // UCAdminEditBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -48,6 +55,7 @@
             this.Controls.Add(this.lblEditBook);
             this.Name = "UCAdminEditBook";
             this.Size = new System.Drawing.Size(710, 560);
+            ((System.ComponentModel.ISupportInitialize)(this.pagadLibraryApplicationDatabaseDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -56,5 +64,6 @@
         #endregion
 
         private System.Windows.Forms.Label lblEditBook;
+        private PagadLibraryApplicationDatabaseDataSet pagadLibraryApplicationDatabaseDataSet;
     }
 }
