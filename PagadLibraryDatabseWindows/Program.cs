@@ -45,8 +45,7 @@ namespace PagadLibraryDatabseWindows
             {
                 conn.Close();
             }
-        }
-        
+        }   
     }
 
     //SAVE SESSION DATA

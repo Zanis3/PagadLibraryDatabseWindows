@@ -34,11 +34,12 @@
             this.cboSearchOptions = new System.Windows.Forms.ComboBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.tblViewBooks = new System.Windows.Forms.DataGridView();
-            this.pagadLibraryApplicationDatabaseDataSet = new PagadLibraryDatabseWindows.PagadLibraryApplicationDatabaseDataSet();
             this.pagadLibraryApplicationDatabaseDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pagadLibraryApplicationDatabaseDataSet = new PagadLibraryDatabseWindows.PagadLibraryApplicationDatabaseDataSet();
+            this.btnClear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tblViewBooks)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pagadLibraryApplicationDatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pagadLibraryApplicationDatabaseDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pagadLibraryApplicationDatabaseDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // lblViewBooks
@@ -54,7 +55,7 @@
             // txtSearchBar
             // 
             this.txtSearchBar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchBar.Location = new System.Drawing.Point(68, 150);
+            this.txtSearchBar.Location = new System.Drawing.Point(68, 137);
             this.txtSearchBar.Name = "txtSearchBar";
             this.txtSearchBar.Size = new System.Drawing.Size(200, 31);
             this.txtSearchBar.TabIndex = 4;
@@ -69,7 +70,7 @@
             "BookID",
             "BookName",
             "BookAuthor"});
-            this.cboSearchOptions.Location = new System.Drawing.Point(304, 149);
+            this.cboSearchOptions.Location = new System.Drawing.Point(298, 137);
             this.cboSearchOptions.Name = "cboSearchOptions";
             this.cboSearchOptions.Size = new System.Drawing.Size(150, 33);
             this.cboSearchOptions.TabIndex = 5;
@@ -80,7 +81,7 @@
             this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSearch.Location = new System.Drawing.Point(477, 141);
+            this.btnSearch.Location = new System.Drawing.Point(477, 129);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(150, 50);
             this.btnSearch.TabIndex = 17;
@@ -102,20 +103,35 @@
             this.tblViewBooks.Size = new System.Drawing.Size(559, 250);
             this.tblViewBooks.TabIndex = 18;
             // 
-            // pagadLibraryApplicationDatabaseDataSet
-            // 
-            this.pagadLibraryApplicationDatabaseDataSet.DataSetName = "PagadLibraryApplicationDatabaseDataSet";
-            this.pagadLibraryApplicationDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // pagadLibraryApplicationDatabaseDataSetBindingSource
             // 
             this.pagadLibraryApplicationDatabaseDataSetBindingSource.DataSource = this.pagadLibraryApplicationDatabaseDataSet;
             this.pagadLibraryApplicationDatabaseDataSetBindingSource.Position = 0;
             // 
+            // pagadLibraryApplicationDatabaseDataSet
+            // 
+            this.pagadLibraryApplicationDatabaseDataSet.DataSetName = "PagadLibraryApplicationDatabaseDataSet";
+            this.pagadLibraryApplicationDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // btnClear
+            // 
+            this.btnClear.BackColor = System.Drawing.Color.IndianRed;
+            this.btnClear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnClear.Location = new System.Drawing.Point(268, 501);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(150, 50);
+            this.btnClear.TabIndex = 19;
+            this.btnClear.Text = "Clear Search";
+            this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
             // UCAdminViewBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.tblViewBooks);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.cboSearchOptions);
@@ -124,8 +140,8 @@
             this.Name = "UCAdminViewBook";
             this.Size = new System.Drawing.Size(710, 560);
             ((System.ComponentModel.ISupportInitialize)(this.tblViewBooks)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pagadLibraryApplicationDatabaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pagadLibraryApplicationDatabaseDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pagadLibraryApplicationDatabaseDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -140,5 +156,6 @@
         private System.Windows.Forms.DataGridView tblViewBooks;
         private System.Windows.Forms.BindingSource pagadLibraryApplicationDatabaseDataSetBindingSource;
         private PagadLibraryApplicationDatabaseDataSet pagadLibraryApplicationDatabaseDataSet;
+        private System.Windows.Forms.Button btnClear;
     }
 }
