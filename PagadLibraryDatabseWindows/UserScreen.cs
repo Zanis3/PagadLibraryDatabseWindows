@@ -51,5 +51,17 @@ namespace PagadLibraryDatabseWindows
             UCAdminUserEditAccount userSettings = new UCAdminUserEditAccount();
             addUserControls(userSettings);
         }
+
+        private void btnBorrowBook_Click(object sender, EventArgs e)
+        {
+            UCUserBorrowBook borrowBook = new UCUserBorrowBook();
+            addUserControls(borrowBook);
+        }
+
+        private void btnReturnBook_Click(object sender, EventArgs e)
+        {
+            UCUserReturnBook returnBook = new UCUserReturnBook();
+            addUserControls(returnBook);
+        }
     }
 }

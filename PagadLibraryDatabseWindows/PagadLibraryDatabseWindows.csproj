@@ -165,6 +165,24 @@
     <Compile Include="UCAdminViewBookExtension.Designer.cs">
       <DependentUpon>UCAdminViewBookExtension.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCUserBorrowBook.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCUserBorrowBook.Designer.cs">
+      <DependentUpon>UCUserBorrowBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCUserBorrowBookExtension.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UCUserBorrowBookExtension.Designer.cs">
+      <DependentUpon>UCUserBorrowBookExtension.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCUserReturnBook.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCUserReturnBook.Designer.cs">
+      <DependentUpon>UCUserReturnBook.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -220,6 +238,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCAdminViewBookExtension.resx">
       <DependentUpon>UCAdminViewBookExtension.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCUserBorrowBook.resx">
+      <DependentUpon>UCUserBorrowBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCUserBorrowBookExtension.resx">
+      <DependentUpon>UCUserBorrowBookExtension.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCUserReturnBook.resx">
+      <DependentUpon>UCUserReturnBook.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserScreen.resx">
       <DependentUpon>UserScreen.cs</DependentUpon>

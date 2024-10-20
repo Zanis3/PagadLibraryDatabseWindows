@@ -94,6 +94,7 @@
             this.btnReturnBook.TabIndex = 2;
             this.btnReturnBook.Text = "Return Book";
             this.btnReturnBook.UseVisualStyleBackColor = false;
+            this.btnReturnBook.Click += new System.EventHandler(this.btnReturnBook_Click);
             // 
             // btnBorrowBook
             // 
@@ -108,6 +109,7 @@
             this.btnBorrowBook.TabIndex = 1;
             this.btnBorrowBook.Text = "Borrow Book";
             this.btnBorrowBook.UseVisualStyleBackColor = false;
+            this.btnBorrowBook.Click += new System.EventHandler(this.btnBorrowBook_Click);
             // 
             // btnViewBook
             // 
