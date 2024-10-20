@@ -227,7 +227,7 @@ namespace PagadLibraryDatabseWindows
 
                         if (finishEdit == DialogResult.OK)
                         {
-                            Extra.log($"{Session.sessionUserType} '{Session.sessionUsername}' edited book {txtBookName.Text}.");
+                            Extra.log($"{Session.sessionUserType} '{Session.sessionUsername}' edited book '{txtBookName.Text}'.");
                             this.Close();
                         }
                     }

@@ -124,5 +124,20 @@ namespace PagadLibraryDatabseWindows
                 conn.Close();
             }
         }
+
+        private void tblViewBooks_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void cboSearchOptions_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSearchBar_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

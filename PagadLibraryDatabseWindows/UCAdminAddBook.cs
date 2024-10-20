@@ -165,7 +165,7 @@ namespace PagadLibraryDatabseWindows
 
                         MessageBox.Show($"Book {txtBookName.Text} by {txtBookAuthor.Text} has been added.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        Extra.log($"{Session.sessionUserType} '{Session.sessionUsername}' added book {txtBookName.Text} by {txtBookAuthor.Text} to the database.");
+                        Extra.log($"{Session.sessionUserType} '{Session.sessionUsername}' added book '{txtBookName.Text}' by {txtBookAuthor.Text} to the database.");
                     }
                     catch (Exception ex)
                     {

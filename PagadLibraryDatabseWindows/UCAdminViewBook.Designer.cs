@@ -59,6 +59,7 @@
             this.txtSearchBar.Name = "txtSearchBar";
             this.txtSearchBar.Size = new System.Drawing.Size(200, 31);
             this.txtSearchBar.TabIndex = 4;
+            this.txtSearchBar.TextChanged += new System.EventHandler(this.txtSearchBar_TextChanged);
             // 
             // cboSearchOptions
             // 
@@ -74,6 +75,7 @@
             this.cboSearchOptions.Name = "cboSearchOptions";
             this.cboSearchOptions.Size = new System.Drawing.Size(150, 33);
             this.cboSearchOptions.TabIndex = 5;
+            this.cboSearchOptions.SelectedIndexChanged += new System.EventHandler(this.cboSearchOptions_SelectedIndexChanged);
             // 
             // btnSearch
             // 
@@ -103,6 +105,7 @@
             this.tblViewBooks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.tblViewBooks.Size = new System.Drawing.Size(559, 250);
             this.tblViewBooks.TabIndex = 18;
+            this.tblViewBooks.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tblViewBooks_CellContentClick);
             // 
             // pagadLibraryApplicationDatabaseDataSetBindingSource
             // 
