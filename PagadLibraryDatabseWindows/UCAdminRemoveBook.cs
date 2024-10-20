@@ -53,6 +53,8 @@ namespace PagadLibraryDatabseWindows
                         removeBook.Parameters.AddWithValue("@bookid", bookID);
                         removeBook.ExecuteNonQuery();
                         MessageBox.Show($"Book {bookName} deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        loadBookData("SELECT b.BookID, b.BookName, b.BookAuthor, b.BookISBN, COUNT(c.BookCopyID) AS NumberOfCopies FROM Book b LEFT JOIN BookCopy c ON b.BookID = c.BookID GROUP BY b.BookID, b.BookName, b.BookAuthor, b.BookISBN");
                         Extra.log($"{Session.sessionUserType} '{Session.sessionUsername}' deleted the book '{bookName}'");
                     }
                 }

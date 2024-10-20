@@ -85,6 +85,8 @@ namespace PagadLibraryDatabseWindows
 
                         if(borrowConfirm == DialogResult.OK)
                         {
+                            Extra.log($"{Session.sessionUserType} '{Session.sessionUsername}' borrowed a book.");
+                            conn.Close();
                             loadBookData();
                         }
                     }
@@ -97,10 +99,6 @@ namespace PagadLibraryDatabseWindows
             catch(Exception ex)
             {
                 MessageBox.Show($"Something went wrong. Please try again. ({ex})", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                conn.Close();
             }
         }
 
