@@ -79,6 +79,7 @@
             this.btnEditAccount.TabIndex = 3;
             this.btnEditAccount.Text = "Edit User Account";
             this.btnEditAccount.UseVisualStyleBackColor = false;
+            this.btnEditAccount.Click += new System.EventHandler(this.btnEditAccount_Click);
             // 
             // btnReturnBook
             // 

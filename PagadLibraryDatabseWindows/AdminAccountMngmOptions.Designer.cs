@@ -62,6 +62,7 @@
             this.btnBack.TabIndex = 4;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // btnEditAccount
             // 
@@ -76,6 +77,7 @@
             this.btnEditAccount.TabIndex = 2;
             this.btnEditAccount.Text = "Edit Admin Account";
             this.btnEditAccount.UseVisualStyleBackColor = false;
+            this.btnEditAccount.Click += new System.EventHandler(this.btnEditAccount_Click);
             // 
             // btnRegisterAdmin
             // 
@@ -90,6 +92,7 @@
             this.btnRegisterAdmin.TabIndex = 1;
             this.btnRegisterAdmin.Text = "Register an Admin";
             this.btnRegisterAdmin.UseVisualStyleBackColor = false;
+            this.btnRegisterAdmin.Click += new System.EventHandler(this.btnRegisterAdmin_Click);
             // 
             // btnUserAccounts
             // 
@@ -119,7 +122,9 @@
             this.ClientSize = new System.Drawing.Size(1008, 561);
             this.Controls.Add(this.pnlContainer);
             this.Controls.Add(this.pnlMenu);
+            this.MaximizeBox = false;
             this.Name = "AdminAccountMngmOptions";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminAccountMngmOptions";
             this.pnlMenu.ResumeLayout(false);
             this.ResumeLayout(false);

@@ -129,11 +129,23 @@
     <Compile Include="UCAdminEditBookExtension.Designer.cs">
       <DependentUpon>UCAdminEditBookExtension.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCAdminRegisterAdmin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCAdminRegisterAdmin.Designer.cs">
+      <DependentUpon>UCAdminRegisterAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="UCAdminRemoveBook.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UCAdminRemoveBook.Designer.cs">
       <DependentUpon>UCAdminRemoveBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCAdminUserEditAccount.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCAdminUserEditAccount.Designer.cs">
+      <DependentUpon>UCAdminUserEditAccount.cs</DependentUpon>
     </Compile>
     <Compile Include="UCAdminViewBook.cs">
       <SubType>UserControl</SubType>
@@ -185,8 +197,14 @@
     <EmbeddedResource Include="UCAdminEditBookExtension.resx">
       <DependentUpon>UCAdminEditBookExtension.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UCAdminRegisterAdmin.resx">
+      <DependentUpon>UCAdminRegisterAdmin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UCAdminRemoveBook.resx">
       <DependentUpon>UCAdminRemoveBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCAdminUserEditAccount.resx">
+      <DependentUpon>UCAdminUserEditAccount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCAdminViewBook.resx">
       <DependentUpon>UCAdminViewBook.cs</DependentUpon>

@@ -45,5 +45,11 @@ namespace PagadLibraryDatabseWindows
             UCAdminViewBook viewBook = new UCAdminViewBook();
             addUserControls(viewBook);
         }
+
+        private void btnEditAccount_Click(object sender, EventArgs e)
+        {
+            UCAdminUserEditAccount userSettings = new UCAdminUserEditAccount();
+            addUserControls(userSettings);
+        }
     }
 }
