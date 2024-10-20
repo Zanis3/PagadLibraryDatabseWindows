@@ -105,8 +105,9 @@
             this.btnUserAccounts.Name = "btnUserAccounts";
             this.btnUserAccounts.Size = new System.Drawing.Size(307, 80);
             this.btnUserAccounts.TabIndex = 0;
-            this.btnUserAccounts.Text = "Delete/Update Accounts";
+            this.btnUserAccounts.Text = "Delete Accounts";
             this.btnUserAccounts.UseVisualStyleBackColor = false;
+            this.btnUserAccounts.Click += new System.EventHandler(this.btnUserAccounts_Click);
             // 
             // pnlContainer
             // 

@@ -48,5 +48,11 @@ namespace PagadLibraryDatabseWindows
             UCAdminRegisterAdmin registerAdmin = new UCAdminRegisterAdmin();
             addUserControls(registerAdmin);
         }
+
+        private void btnUserAccounts_Click(object sender, EventArgs e)
+        {
+            UCAdminRemoveAccount removeAccount = new UCAdminRemoveAccount();
+            addUserControls(removeAccount);
+        }
     }
 }

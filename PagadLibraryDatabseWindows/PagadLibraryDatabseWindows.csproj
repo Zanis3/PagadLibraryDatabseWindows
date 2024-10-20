@@ -135,6 +135,12 @@
     <Compile Include="UCAdminRegisterAdmin.Designer.cs">
       <DependentUpon>UCAdminRegisterAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCAdminRemoveAccount.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCAdminRemoveAccount.Designer.cs">
+      <DependentUpon>UCAdminRemoveAccount.cs</DependentUpon>
+    </Compile>
     <Compile Include="UCAdminRemoveBook.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -199,6 +205,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCAdminRegisterAdmin.resx">
       <DependentUpon>UCAdminRegisterAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCAdminRemoveAccount.resx">
+      <DependentUpon>UCAdminRemoveAccount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCAdminRemoveBook.resx">
       <DependentUpon>UCAdminRemoveBook.cs</DependentUpon>
