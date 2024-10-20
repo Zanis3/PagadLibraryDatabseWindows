@@ -100,6 +100,7 @@
             this.tblViewBooks.DataSource = this.pagadLibraryApplicationDatabaseDataSetBindingSource;
             this.tblViewBooks.Location = new System.Drawing.Point(68, 245);
             this.tblViewBooks.Name = "tblViewBooks";
+            this.tblViewBooks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.tblViewBooks.Size = new System.Drawing.Size(559, 250);
             this.tblViewBooks.TabIndex = 18;
             // 

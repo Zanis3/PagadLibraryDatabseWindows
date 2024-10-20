@@ -41,6 +41,7 @@
             this.tblShowBookCopies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tblShowBookCopies.Location = new System.Drawing.Point(-1, -1);
             this.tblShowBookCopies.Name = "tblShowBookCopies";
+            this.tblShowBookCopies.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.tblShowBookCopies.Size = new System.Drawing.Size(545, 215);
             this.tblShowBookCopies.TabIndex = 0;
             // 

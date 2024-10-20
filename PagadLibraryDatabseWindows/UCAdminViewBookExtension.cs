@@ -34,7 +34,7 @@ namespace PagadLibraryDatabseWindows
             try
             {
                 conn.Open();
-                SqlCommand viewSelectedBookCopies = new SqlCommand("SELECT c.BookCopyID, c.BookID, b.BookName, CASE WHEN c.BookCopyAvailability = 1 THEN 'Available' ELSE 'Not Available' FROM BookCopy c LEFT JOIN Book b ON c.BookID = b.BookID WHERE c.BookID = @bookid", conn);
+                SqlCommand viewSelectedBookCopies = new SqlCommand("SELECT c.BookCopyID, c.BookID, b.BookName, CASE WHEN c.BookCopyAvailability = 1 THEN 'Available' ELSE 'Not Available' END AS Availability FROM BookCopy c LEFT JOIN Book b ON c.BookID = b.BookID WHERE c.BookID = @bookid", conn);
 
                 viewSelectedBookCopies.Parameters.AddWithValue("@bookid", bookID);
 

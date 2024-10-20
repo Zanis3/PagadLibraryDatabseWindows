@@ -118,59 +118,65 @@ namespace PagadLibraryDatabseWindows
 
             if(counter == 5)
             {
-                try
+                DialogResult result = MessageBox.Show($"Are you sure you want to add the book '{txtBookName.Text}'? You will not be able to undo these changes.", "Notice", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                if(result == DialogResult.Yes)
                 {
-                    conn.Open();
-
-                    //ADD BOOK
-                    SqlCommand addBook = new SqlCommand("INSERT INTO Book (BookName, BookAuthor, BookISBN) VALUES (@bookname, @bookauthor, @bookisbn)", conn);
-
-                    addBook.Parameters.AddWithValue("@bookname", txtBookName.Text);
-                    addBook.Parameters.AddWithValue("@bookauthor", txtBookAuthor.Text);
-                    addBook.Parameters.AddWithValue("@bookisbn", txtBookISBN.Text);
-
-                    addBook.ExecuteNonQuery();
-
-
-                    //GET BOOK ID
-                    int bookID = -1;
-
-                    SqlCommand getBook = new SqlCommand("SELECT TOP 1 BookID FROM Book WHERE BookName = @bookname AND BookAuthor = @bookauthor", conn);
-
-                    getBook.Parameters.AddWithValue("@bookname", txtBookName.Text);
-                    getBook.Parameters.AddWithValue("@bookauthor", txtBookAuthor.Text);
-
-                    SqlDataReader reader = getBook.ExecuteReader();
-
-                    if (reader.HasRows)
+                    try
                     {
-                        reader.Read();
-                        bookID = Convert.ToInt16(reader["BookID"]);
+                        conn.Open();
+
+                        //ADD BOOK
+                        SqlCommand addBook = new SqlCommand("INSERT INTO Book (BookName, BookAuthor, BookISBN) VALUES (@bookname, @bookauthor, @bookisbn)", conn);
+
+                        addBook.Parameters.AddWithValue("@bookname", txtBookName.Text);
+                        addBook.Parameters.AddWithValue("@bookauthor", txtBookAuthor.Text);
+                        addBook.Parameters.AddWithValue("@bookisbn", txtBookISBN.Text);
+
+                        addBook.ExecuteNonQuery();
+
+
+                        //GET BOOK ID
+                        int bookID = -1;
+
+                        SqlCommand getBook = new SqlCommand("SELECT TOP 1 BookID FROM Book WHERE BookName = @bookname AND BookAuthor = @bookauthor", conn);
+
+                        getBook.Parameters.AddWithValue("@bookname", txtBookName.Text);
+                        getBook.Parameters.AddWithValue("@bookauthor", txtBookAuthor.Text);
+
+                        SqlDataReader reader = getBook.ExecuteReader();
+
+                        if (reader.HasRows)
+                        {
+                            reader.Read();
+                            bookID = Convert.ToInt16(reader["BookID"]);
+                        }
+
+                        reader.Close();
+
+                        //ADD BOOK COPY
+                        for (int i = 0; i < txtCopyAmount.Value; i++)
+                        {
+                            SqlCommand addBookCopy = new SqlCommand("INSERT INTO BookCopy (BookID) VALUES (@bookID)", conn);
+
+                            addBookCopy.Parameters.AddWithValue("@bookID", bookID);
+                            addBookCopy.ExecuteNonQuery();
+                        }
+
+                        MessageBox.Show($"Book {txtBookName.Text} by {txtBookAuthor.Text} has been added.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        Extra.log($"{Session.sessionUserType} '{Session.sessionUsername}' added book {txtBookName.Text} by {txtBookAuthor.Text} to the database.");
                     }
-
-                    reader.Close();
-
-                    //ADD BOOK COPY
-                    for (int i = 0; i < txtCopyAmount.Value; i++)
+                    catch (Exception ex)
                     {
-                        SqlCommand addBookCopy = new SqlCommand("INSERT INTO BookCopy (BookID) VALUES (@bookID)", conn);
-
-                        addBookCopy.Parameters.AddWithValue("@bookID", bookID);
-                        addBookCopy.ExecuteNonQuery();
+                        MessageBox.Show($"Something went wrong. Please try again. ({ex})", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-
-                    MessageBox.Show($"Book {txtBookName.Text} by {txtBookAuthor.Text} has been added.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    Extra.log($"{Session.sessionUserType} '{Session.sessionUsername}' added book {txtBookName.Text} by {txtBookAuthor.Text} to the database.");
+                    finally
+                    {
+                        conn.Close();
+                    }
                 }
-                catch(Exception ex)
-                {
-                    MessageBox.Show($"Something went wrong. Please try again. ({ex})", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    conn.Close();
-                }
+                
             }
         }
     }

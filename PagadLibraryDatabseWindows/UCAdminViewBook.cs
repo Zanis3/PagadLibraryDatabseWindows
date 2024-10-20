@@ -15,6 +15,7 @@ namespace PagadLibraryDatabseWindows
 {
     public partial class UCAdminViewBook : UserControl
     {
+        private UCAdminViewBookExtension viewBookDetails;
         public UCAdminViewBook()
         {
             InitializeComponent();
@@ -31,8 +32,21 @@ namespace PagadLibraryDatabseWindows
                 DataGridViewRow selectedRow = tblViewBooks.Rows[e.RowIndex];
                 string bookID = selectedRow.Cells["BookID"].Value.ToString();
 
-                UCAdminViewBookExtension showCopies = new UCAdminViewBookExtension(bookID);
-                showCopies.Show();
+                if (viewBookDetails == null || viewBookDetails.IsDisposed)
+                {
+                    viewBookDetails = new UCAdminViewBookExtension(bookID);
+                    viewBookDetails.ShowDialog();
+                    viewBookDetails.BringToFront();
+                    viewBookDetails.Focus();
+                }
+                else
+                {
+                    viewBookDetails.Close();
+                    viewBookDetails = new UCAdminViewBookExtension(bookID);
+                    viewBookDetails.ShowDialog();
+                    viewBookDetails.BringToFront();
+                    viewBookDetails.Focus();
+                }
             }
         }
 
@@ -103,7 +117,7 @@ namespace PagadLibraryDatabseWindows
             }
             catch(Exception ex)
             {
-                MessageBox.Show($"Something went wrong. Please try again. ({ex.Message})", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Something went wrong. Please try again. ({ex})", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {

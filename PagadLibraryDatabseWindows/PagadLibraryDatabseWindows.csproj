@@ -123,6 +123,12 @@
     <Compile Include="UCAdminEditBook.Designer.cs">
       <DependentUpon>UCAdminEditBook.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCAdminEditBookExtension.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UCAdminEditBookExtension.Designer.cs">
+      <DependentUpon>UCAdminEditBookExtension.cs</DependentUpon>
+    </Compile>
     <Compile Include="UCAdminRemoveBook.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -172,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCAdminEditBook.resx">
       <DependentUpon>UCAdminEditBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCAdminEditBookExtension.resx">
+      <DependentUpon>UCAdminEditBookExtension.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCAdminRemoveBook.resx">
       <DependentUpon>UCAdminRemoveBook.cs</DependentUpon>
