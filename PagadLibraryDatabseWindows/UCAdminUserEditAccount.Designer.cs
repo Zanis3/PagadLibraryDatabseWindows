@@ -31,8 +31,6 @@
             this.lblEditUserSettings = new System.Windows.Forms.Label();
             this.txtEditUsername = new System.Windows.Forms.TextBox();
             this.lblUsername = new System.Windows.Forms.Label();
-            this.txtCurrentPassword = new System.Windows.Forms.TextBox();
-            this.lblCurrentPassword = new System.Windows.Forms.Label();
             this.lblNewPassword = new System.Windows.Forms.Label();
             this.txtNewPassword = new System.Windows.Forms.TextBox();
             this.lblConfirmPassword = new System.Windows.Forms.Label();
@@ -69,30 +67,11 @@
             this.lblUsername.TabIndex = 11;
             this.lblUsername.Text = "Username:";
             // 
-            // txtCurrentPassword
-            // 
-            this.txtCurrentPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCurrentPassword.Location = new System.Drawing.Point(311, 232);
-            this.txtCurrentPassword.Name = "txtCurrentPassword";
-            this.txtCurrentPassword.PasswordChar = '*';
-            this.txtCurrentPassword.Size = new System.Drawing.Size(325, 44);
-            this.txtCurrentPassword.TabIndex = 12;
-            // 
-            // lblCurrentPassword
-            // 
-            this.lblCurrentPassword.AutoSize = true;
-            this.lblCurrentPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCurrentPassword.Location = new System.Drawing.Point(49, 241);
-            this.lblCurrentPassword.Name = "lblCurrentPassword";
-            this.lblCurrentPassword.Size = new System.Drawing.Size(228, 29);
-            this.lblCurrentPassword.TabIndex = 13;
-            this.lblCurrentPassword.Text = "Current Password:";
-            // 
             // lblNewPassword
             // 
             this.lblNewPassword.AutoSize = true;
             this.lblNewPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNewPassword.Location = new System.Drawing.Point(82, 309);
+            this.lblNewPassword.Location = new System.Drawing.Point(82, 271);
             this.lblNewPassword.Name = "lblNewPassword";
             this.lblNewPassword.Size = new System.Drawing.Size(195, 29);
             this.lblNewPassword.TabIndex = 15;
@@ -101,7 +80,7 @@
             // txtNewPassword
             // 
             this.txtNewPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNewPassword.Location = new System.Drawing.Point(311, 300);
+            this.txtNewPassword.Location = new System.Drawing.Point(311, 262);
             this.txtNewPassword.Name = "txtNewPassword";
             this.txtNewPassword.PasswordChar = '*';
             this.txtNewPassword.Size = new System.Drawing.Size(325, 44);
@@ -111,7 +90,7 @@
             // 
             this.lblConfirmPassword.AutoSize = true;
             this.lblConfirmPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConfirmPassword.Location = new System.Drawing.Point(44, 375);
+            this.lblConfirmPassword.Location = new System.Drawing.Point(44, 337);
             this.lblConfirmPassword.Name = "lblConfirmPassword";
             this.lblConfirmPassword.Size = new System.Drawing.Size(233, 29);
             this.lblConfirmPassword.TabIndex = 17;
@@ -120,7 +99,7 @@
             // txtConfirmPassword
             // 
             this.txtConfirmPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtConfirmPassword.Location = new System.Drawing.Point(311, 366);
+            this.txtConfirmPassword.Location = new System.Drawing.Point(311, 328);
             this.txtConfirmPassword.Name = "txtConfirmPassword";
             this.txtConfirmPassword.PasswordChar = '*';
             this.txtConfirmPassword.Size = new System.Drawing.Size(325, 44);
@@ -130,7 +109,7 @@
             // 
             this.btnSaveSettings.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.btnSaveSettings.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSaveSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveSettings.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnSaveSettings.Location = new System.Drawing.Point(102, 442);
             this.btnSaveSettings.Name = "btnSaveSettings";
@@ -138,12 +117,13 @@
             this.btnSaveSettings.TabIndex = 18;
             this.btnSaveSettings.Text = "Save Settings";
             this.btnSaveSettings.UseVisualStyleBackColor = false;
+            this.btnSaveSettings.Click += new System.EventHandler(this.btnSaveSettings_Click);
             // 
             // btnClearChanges
             // 
             this.btnClearChanges.BackColor = System.Drawing.Color.IndianRed;
             this.btnClearChanges.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClearChanges.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClearChanges.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClearChanges.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnClearChanges.Location = new System.Drawing.Point(364, 442);
             this.btnClearChanges.Name = "btnClearChanges";
@@ -151,6 +131,7 @@
             this.btnClearChanges.TabIndex = 19;
             this.btnClearChanges.Text = "Clear Changes";
             this.btnClearChanges.UseVisualStyleBackColor = false;
+            this.btnClearChanges.Click += new System.EventHandler(this.btnClearChanges_Click);
             // 
             // UCAdminUserEditAccount
             // 
@@ -162,8 +143,6 @@
             this.Controls.Add(this.txtConfirmPassword);
             this.Controls.Add(this.lblNewPassword);
             this.Controls.Add(this.txtNewPassword);
-            this.Controls.Add(this.lblCurrentPassword);
-            this.Controls.Add(this.txtCurrentPassword);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.txtEditUsername);
             this.Controls.Add(this.lblEditUserSettings);
@@ -179,8 +158,6 @@
         private System.Windows.Forms.Label lblEditUserSettings;
         private System.Windows.Forms.TextBox txtEditUsername;
         private System.Windows.Forms.Label lblUsername;
-        private System.Windows.Forms.TextBox txtCurrentPassword;
-        private System.Windows.Forms.Label lblCurrentPassword;
         private System.Windows.Forms.Label lblNewPassword;
         private System.Windows.Forms.TextBox txtNewPassword;
         private System.Windows.Forms.Label lblConfirmPassword;

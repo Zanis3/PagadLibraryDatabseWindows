@@ -51,6 +51,7 @@ namespace PagadLibraryDatabseWindows
     //SAVE SESSION DATA
     internal static class Session
     {
+        public static int sessionUserID { get; set; }
         public static string sessionUsername { get; set; }
         public static string sessionUserType { get; set; }
     }

@@ -58,6 +58,7 @@ namespace PagadLibraryDatabseWindows
                         string hashPass = reader["UserPassword"].ToString();
                         string password = txtPassword.Text;
                         string userType = reader["UserType"].ToString();
+                        int userID = Convert.ToInt16(reader["UserID"]);
                         bool passwordVerifier = Password.hashVerifier(hashPass, password);
 
                         //PAG MALI PASSWORD
@@ -69,6 +70,7 @@ namespace PagadLibraryDatabseWindows
                         {
                             Session.sessionUsername = txtUsername.Text;
                             Session.sessionUserType = userType;
+                            Session.sessionUserID = userID;
 
                             Extra.log($"{userType} '{txtUsername.Text}' logged into their account.");
 
