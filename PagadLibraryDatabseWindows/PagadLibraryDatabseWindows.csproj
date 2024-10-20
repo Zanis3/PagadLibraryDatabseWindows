@@ -153,6 +153,9 @@
     <Compile Include="UserScreen.Designer.cs">
       <DependentUpon>UserScreen.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AdminAccountMngmOptions.resx">
+      <DependentUpon>AdminAccountMngmOptions.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminBookOptions.resx">
       <DependentUpon>AdminBookOptions.cs</DependentUpon>
     </EmbeddedResource>
