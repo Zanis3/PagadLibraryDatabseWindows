@@ -54,5 +54,11 @@ namespace PagadLibraryDatabseWindows
             UCAdminRemoveAccount removeAccount = new UCAdminRemoveAccount();
             addUserControls(removeAccount);
         }
+
+        private void btnViewLogs_Click(object sender, EventArgs e)
+        {
+            UCAdminViewLogs viewLogs = new UCAdminViewLogs();
+            addUserControls(viewLogs);
+        }
     }
 }

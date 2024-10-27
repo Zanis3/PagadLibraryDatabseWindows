@@ -46,7 +46,7 @@ namespace PagadLibraryDatabseWindows
             }
             catch(Exception ex)
             {
-                MessageBox.Show($"Something went wrong. Please try again. ({ex})", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Extra.showException(ex);
             }
             finally
             {
@@ -62,7 +62,7 @@ namespace PagadLibraryDatabseWindows
             //IF NULL VALUES SA USERNAME AND CONFIRM PASSWORD FIELDS
             if (txtEditUsername.Text == null || txtConfirmPassword.Text == null)
             {
-                MessageBox.Show("Some fields are empty. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Extra.showWarningMessage("Some fields are empty. Please try again.");
             }
             else
             {
@@ -72,7 +72,7 @@ namespace PagadLibraryDatabseWindows
             //IF USERNAME < 5
             if(txtEditUsername.Text.Length < 5 && txtEditUsername.Text != null)
             {
-                MessageBox.Show("Username less than five characters long. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Extra.showWarningMessage("Username less than five characters long. Please try again.");
             }
             else
             {
@@ -82,7 +82,7 @@ namespace PagadLibraryDatabseWindows
             //IF USERNAME > 50
             if (txtEditUsername.Text.Length > 50)
             {
-                MessageBox.Show("Username greater than fifty characters long. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Extra.showWarningMessage("Username greater than fifty characters long. Please try again.");
             }
             else
             {
@@ -102,7 +102,7 @@ namespace PagadLibraryDatabseWindows
                 SqlDataReader reader = findUsername.ExecuteReader();
                 if (reader.HasRows)
                 {
-                    MessageBox.Show($"Username '{username}' is already taken. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    Extra.showWarningMessage($"Username '{username}' is already taken. Please try again.");
                     reader.Close();
                 }
                 else
@@ -115,6 +115,7 @@ namespace PagadLibraryDatabseWindows
 
             if(counter == 4)
             {
+                bool editSuccess = false;
                 int subcounter = 0;
                 if(string.IsNullOrWhiteSpace(txtNewPassword.Text))
                 {
@@ -140,7 +141,7 @@ namespace PagadLibraryDatabseWindows
 
                         if (passVerify == false)
                         {
-                            MessageBox.Show($"Confirm password doesn't match with your current password. Please try again.", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                            Extra.showWarningMessage($"Confirm password doesn't match with your current password. Please try again.");
                         }
                         else
                         {
@@ -148,22 +149,20 @@ namespace PagadLibraryDatabseWindows
 
                             if (result == DialogResult.Yes)
                             {
-                                SqlCommand editAccount = new SqlCommand("UPDATE [User] SET UserName = @username, UserPassword = @password WHERE UserID = @userid", conn);
+                                SqlCommand editAccount = new SqlCommand("UPDATE [User] SET UserName = @username WHERE UserID = @userid", conn);
 
                                 editAccount.Parameters.AddWithValue("@userid", Session.sessionUserID);
                                 editAccount.Parameters.AddWithValue("@username", txtEditUsername.Text);
 
-                                string newPass = Password.passwordHasher(txtNewPassword.Text);
-                                editAccount.Parameters.AddWithValue("@password", newPass);
-
                                 editAccount.ExecuteNonQuery();
-                            }
 
+                                editSuccess = true;
+                            }
                         }
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"Something went wrong. Please try again. ({ex})", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        Extra.showException(ex);
                     }
                     finally
                     {
@@ -175,7 +174,7 @@ namespace PagadLibraryDatabseWindows
                     //IF NEW PASSWORD LENGTH < 8
                     if (txtNewPassword.Text.Length < 8)
                     {
-                        MessageBox.Show($"Your new password is less than eight characters long. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        Extra.showWarningMessage("Your new password is less than eight characters long. Please try again.");
                     }
                     else
                     {
@@ -185,7 +184,7 @@ namespace PagadLibraryDatabseWindows
                     //IF NEW PASSWORD LENGTH > 255
                     if (txtNewPassword.Text.Length > 255)
                     {
-                        MessageBox.Show($"Your new password is greater than 255 characters long. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        Extra.showWarningMessage("Your new password is greater than 255 characters long. Please try again.");
                     }
                     else
                     {
@@ -195,7 +194,7 @@ namespace PagadLibraryDatabseWindows
                     //IF NEW PASSWORD AND CONFIRM PASSWORD IS NOT ALIKE
                     if (txtNewPassword.Text != txtConfirmPassword.Text)
                     {
-                        MessageBox.Show($"Your new password doesn't match confirm password. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        Extra.showWarningMessage("Your new password doesn't match confirm password. Please try again.");
                     }
                     else
                     {
@@ -221,11 +220,13 @@ namespace PagadLibraryDatabseWindows
                                 editAccount.Parameters.AddWithValue("@password", hashPass);
 
                                 editAccount.ExecuteNonQuery();
+
+                                editSuccess = true;
                             }
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show($"Something went wrong. Please try again. ({ex})", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            Extra.showException(ex);
                         }
                         finally
                         {
@@ -234,9 +235,12 @@ namespace PagadLibraryDatabseWindows
                     } 
                 }
 
-                MessageBox.Show("Account details edited successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Extra.log($"{Session.sessionUserType} '{txtEditUsername.Text}' edited their profile.");
-                loadAccountData();
+                if (editSuccess)
+                {
+                    Extra.showSucessMessage("Account details edited successfully!");
+                    Extra.log($"{Session.sessionUserType} '{txtEditUsername.Text}' edited their profile.");
+                    loadAccountData();
+                }
             }
         }
 

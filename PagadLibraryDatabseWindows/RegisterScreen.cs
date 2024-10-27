@@ -28,12 +28,8 @@ namespace PagadLibraryDatabseWindows
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            string title, message;
-            title = "Go Back?";
-            message = "Are you sure you want to go back?";
-            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            MessageBoxIcon icon = MessageBoxIcon.Question;
-            DialogResult result = MessageBox.Show(message, title, buttons, icon);
+            DialogResult result = MessageBox.Show("Are you sure you want to go back?", "Go Back?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
             if (result == DialogResult.Yes)
             {
                 LibraryWelcomeScreen welcome = new LibraryWelcomeScreen();
@@ -47,16 +43,11 @@ namespace PagadLibraryDatabseWindows
             SqlConnection conn = new SqlConnection(Extra.connectionString);
 
             int counter = 0;
-            string title, message;
 
             //IF TEXTBOX ARE EMPTY
             if (string.IsNullOrEmpty(txtUsername.Text) || string.IsNullOrEmpty(txtPassword.Text) || string.IsNullOrEmpty(txtConfirmPassword.Text))
             {
-                title = "Empty Textbox";
-                message = "Please fill in all fields to continue.";
-                MessageBoxButtons button = MessageBoxButtons.OK;
-                MessageBoxIcon icon = MessageBoxIcon.Error;
-                MessageBox.Show(message, title, button, icon);
+                Extra.showWarningMessage("Please fill in all fields to continue.");
             }
             else
             {
@@ -66,11 +57,7 @@ namespace PagadLibraryDatabseWindows
             //MINIMUM 5 CHARACTERS USERNAME
             if (txtUsername.Text.Length < 6 && txtPassword.Text != null)
             {
-                title = "Username Error";
-                message = "Username should be six characters or more.";
-                MessageBoxButtons button = MessageBoxButtons.OK;
-                MessageBoxIcon icon = MessageBoxIcon.Error;
-                MessageBox.Show(message, title, button, icon);
+                Extra.showWarningMessage("Username should be six characters or more.");
             }
             else
             {
@@ -80,11 +67,7 @@ namespace PagadLibraryDatabseWindows
             //MINIMUM 8 CHARACTERS PASSWORD
             if(txtPassword.Text.Length < 8 && txtPassword.Text != null)
             {
-                title = "Password Error";
-                message = "Password should be eight characters or more.";
-                MessageBoxButtons button = MessageBoxButtons.OK;
-                MessageBoxIcon icon = MessageBoxIcon.Error;
-                MessageBox.Show(message, title, button, icon);
+                Extra.showWarningMessage("Password should be eight characters or more.");
             }
             else
             {
@@ -94,11 +77,7 @@ namespace PagadLibraryDatabseWindows
             //USERNAME AND PASSWORD LENGTH LIMITATIONS
             if (txtUsername.Text.Length > 50)
             {
-                title = "Username Error";
-                message = "Username has exceeded character limit. Please try again (Username should be less than 50 characters)";
-                MessageBoxButtons button = MessageBoxButtons.OK;
-                MessageBoxIcon icon = MessageBoxIcon.Error;
-                MessageBox.Show(message, title, button, icon);
+                Extra.showWarningMessage("Username has exceeded character limit. Please try again (Username should be less than 50 characters)");
             }
             else
             {
@@ -107,11 +86,7 @@ namespace PagadLibraryDatabseWindows
 
             if (txtPassword.Text.Length > 255)
             {
-                title = "Password Error";
-                message = "Password has exceeded character limit. Please try again (Password should be less than 255 characters)";
-                MessageBoxButtons button = MessageBoxButtons.OK;
-                MessageBoxIcon icon = MessageBoxIcon.Error;
-                MessageBox.Show(message, title, button, icon);
+                Extra.showWarningMessage("Password has exceeded character limit. Please try again (Password should be less than 255 characters)");
             }
             else
             {
@@ -121,11 +96,7 @@ namespace PagadLibraryDatabseWindows
             //PASSWORD AND CONFIRM PASSWORD DO NOT MATCH
             if (txtPassword.Text != txtConfirmPassword.Text)
             {
-                title = "Password Error";
-                message = "Password and Confirm Password do not match.";
-                MessageBoxButtons button = MessageBoxButtons.OK;
-                MessageBoxIcon icon = MessageBoxIcon.Error;
-                MessageBox.Show(message, title, button, icon);
+                Extra.showWarningMessage("Password and Confirm Password do not match.");
             }
             else
             {
@@ -144,11 +115,7 @@ namespace PagadLibraryDatabseWindows
                 SqlDataReader reader = findUsername.ExecuteReader();
                 if (reader.HasRows)
                 {
-                    title = "Username Error";
-                    message = "Username already exists. Please try another username.";
-                    MessageBoxButtons button = MessageBoxButtons.OK;
-                    MessageBoxIcon icon = MessageBoxIcon.Error;
-                    MessageBox.Show(message, title, button, icon);
+                    Extra.showWarningMessage("Username already exists. Please try another username.");
                 }
                 else
                 {
@@ -180,11 +147,11 @@ namespace PagadLibraryDatabseWindows
                     executeReg.ExecuteNonQuery();
 
                     Extra.log($"{userType} '{username}' registered an account.");
-                    MessageBox.Show("Account registered! Please login to access your account.", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Extra.showSucessMessage("Account registered! Please login to access your account.");
                 }
                 catch(Exception ex)
                 {
-                    MessageBox.Show("Something went wrong. Please Try again. " + ex, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Extra.showException(ex);
                 }
                 finally
                 {

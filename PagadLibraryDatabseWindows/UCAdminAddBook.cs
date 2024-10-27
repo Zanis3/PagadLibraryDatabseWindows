@@ -38,7 +38,7 @@ namespace PagadLibraryDatabseWindows
             //EMPTY UNG TEXT FIELDS
             if (string.IsNullOrEmpty(txtBookName.Text) || string.IsNullOrEmpty(txtBookAuthor.Text) || string.IsNullOrEmpty(txtBookISBN.Text)) 
             {
-                MessageBox.Show("Some text fields are empty. Please Try Again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Extra.showWarningMessage("Some text fields are empty. Please Try Again.");
             }
             else
             {
@@ -48,7 +48,7 @@ namespace PagadLibraryDatabseWindows
             //IF LESS THAN 2 UNG BOOK NAME
             if(txtBookName.Text != null && txtBookName.Text.Length < 2)
             {
-                MessageBox.Show("Invalid Book Name. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Extra.showWarningMessage("Invalid Book Name. Please try again.");
             }
             else
             {
@@ -58,7 +58,7 @@ namespace PagadLibraryDatabseWindows
             //IF LESS THAN 3 UNG BOOK AUTHOR
             if (txtBookAuthor.Text != null && txtBookAuthor.Text.Length < 3)
             {
-                MessageBox.Show("Invalid Book Author. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Extra.showWarningMessage("Invalid Book Author. Please try again.");
             }
             else
             {
@@ -68,7 +68,7 @@ namespace PagadLibraryDatabseWindows
             //IF ISBN IS NOT EXACTLY 10
             if (txtBookISBN.Text != null && (txtBookISBN.Text.Length < 10 || txtBookISBN.Text.Length > 10))
             {
-                MessageBox.Show("Invalid ISBN. Please try again. (MUST BE 10 CHARACTERS OR LONG)", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Extra.showWarningMessage("Invalid ISBN. Please try again. (MUST BE 10 CHARACTERS OR LONG)");
             }
             else
             {
@@ -94,7 +94,7 @@ namespace PagadLibraryDatabseWindows
 
                         if(author == txtBookAuthor.Text)
                         {
-                            MessageBox.Show($"There is already a book named {txtBookName.Text} by {txtBookAuthor.Text}. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            Extra.showWarningMessage($"There is already a book named {txtBookName.Text} by {txtBookAuthor.Text}. Please try again.");
                         }
                         else
                         {
@@ -108,7 +108,7 @@ namespace PagadLibraryDatabseWindows
                 }
                 catch(Exception ex)
                 {
-                    MessageBox.Show($"Something went wrong. Please try again. ({ex})", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Extra.showException(ex);
                 }
                 finally
                 {
@@ -163,13 +163,13 @@ namespace PagadLibraryDatabseWindows
                             addBookCopy.ExecuteNonQuery();
                         }
 
-                        MessageBox.Show($"Book {txtBookName.Text} by {txtBookAuthor.Text} has been added.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Extra.showSucessMessage($"Book {txtBookName.Text} by {txtBookAuthor.Text} has been added!");
 
                         Extra.log($"{Session.sessionUserType} '{Session.sessionUsername}' added book '{txtBookName.Text}' by {txtBookAuthor.Text} to the database.");
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"Something went wrong. Please try again. ({ex})", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        Extra.showException(ex);
                     }
                     finally
                     {

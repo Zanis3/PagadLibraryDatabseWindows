@@ -22,12 +22,8 @@ namespace PagadLibraryDatabseWindows
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            string title, message;
-            title = "Go Back?";
-            message = "Are you sure you want to go back?";
-            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            MessageBoxIcon icon = MessageBoxIcon.Question;
-            DialogResult result = MessageBox.Show(message, title, buttons, icon);
+            DialogResult result = MessageBox.Show("Are you sure you want to go back?", "Go Back?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
             if (result == DialogResult.Yes)
             {
                 LibraryWelcomeScreen welcome = new LibraryWelcomeScreen();
@@ -64,7 +60,7 @@ namespace PagadLibraryDatabseWindows
                         //PAG MALI PASSWORD
                         if(passwordVerifier == false)
                         {
-                            MessageBox.Show($"Wrong Username or Password. Please Try Again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            Extra.showWarningMessage("Wrong Username or Password. Please Try Again.");
                         }
                         else
                         {
@@ -104,7 +100,7 @@ namespace PagadLibraryDatabseWindows
                 }
                 catch(Exception ex)
                 {
-                    MessageBox.Show($"Something went wrong. Please try again. ({ex})", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Extra.showException(ex);
                 }
                 finally
                 {
@@ -113,7 +109,7 @@ namespace PagadLibraryDatabseWindows
             }
             else
             {
-                MessageBox.Show("There are empty fields. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Extra.showWarningMessage("Please fill in all fields to continue.");
             }
         }
     }

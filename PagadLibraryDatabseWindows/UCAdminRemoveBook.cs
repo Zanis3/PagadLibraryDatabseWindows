@@ -52,7 +52,7 @@ namespace PagadLibraryDatabseWindows
                         SqlCommand removeBook = new SqlCommand("DELETE FROM Book WHERE BookID = @bookid", conn);
                         removeBook.Parameters.AddWithValue("@bookid", bookID);
                         removeBook.ExecuteNonQuery();
-                        MessageBox.Show($"Book {bookName} deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Extra.showSucessMessage($"Book {bookName} deleted successfully!");
 
                         loadBookData("SELECT b.BookID, b.BookName, b.BookAuthor, b.BookISBN, COUNT(c.BookCopyID) AS NumberOfCopies FROM Book b LEFT JOIN BookCopy c ON b.BookID = c.BookID GROUP BY b.BookID, b.BookName, b.BookAuthor, b.BookISBN");
                         Extra.log($"{Session.sessionUserType} '{Session.sessionUsername}' deleted the book '{bookName}'");
@@ -60,7 +60,7 @@ namespace PagadLibraryDatabseWindows
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Something went wrong. Please try again. ({ex})", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Extra.showException(ex);
                 }
                 finally
                 {
@@ -76,7 +76,7 @@ namespace PagadLibraryDatabseWindows
             string searchSort = cboSearchOptions.SelectedItem?.ToString();
             if ((string.IsNullOrWhiteSpace(searchQuery) || searchQuery.Length < 3) && searchSort != "BookID")
             {
-                MessageBox.Show($"Search query too short, please try again. (Length must be 3 characters or more)", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Extra.showWarningMessage("Search query too short, please try again. (Length must be 3 characters or more)");
             }
             else
             {
@@ -131,12 +131,12 @@ namespace PagadLibraryDatabseWindows
                 }
                 else
                 {
-                    MessageBox.Show("No data found.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Extra.showNoticeMessage("No data found.");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Something went wrong. Please try again. ({ex})", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Extra.showException(ex);
             }
             finally
             {

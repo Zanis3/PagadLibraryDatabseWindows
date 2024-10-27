@@ -59,7 +59,7 @@ namespace PagadLibraryDatabseWindows
             }
             catch(Exception ex)
             {
-                MessageBox.Show($"Something went wrong. Please try again. ({ex})", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Extra.showException(ex);
             }
             finally
             {
@@ -80,7 +80,7 @@ namespace PagadLibraryDatabseWindows
             //EMPTY UNG TEXT FIELDS
             if (string.IsNullOrEmpty(txtBookName.Text) || string.IsNullOrEmpty(txtBookAuthor.Text) || string.IsNullOrEmpty(txtBookISBN.Text))
             {
-                MessageBox.Show("Some text fields are empty. Please Try Again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Extra.showWarningMessage("Some text fields are empty. Please Try Again.");
             }
             else
             {
@@ -90,7 +90,7 @@ namespace PagadLibraryDatabseWindows
             //IF LESS THAN 2 UNG BOOK NAME
             if (txtBookName.Text != null && txtBookName.Text.Length < 2)
             {
-                MessageBox.Show("Invalid Book Name. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Extra.showWarningMessage("Invalid Book Name. Please try again.");
             }
             else
             {
@@ -100,7 +100,7 @@ namespace PagadLibraryDatabseWindows
             //IF LESS THAN 3 UNG BOOK AUTHOR
             if (txtBookAuthor.Text != null && txtBookAuthor.Text.Length < 3)
             {
-                MessageBox.Show("Invalid Book Author. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Extra.showWarningMessage("Invalid Book Author. Please try again.");
             }
             else
             {
@@ -110,7 +110,7 @@ namespace PagadLibraryDatabseWindows
             //IF ISBN IS NOT EXACTLY TEN
             if (txtBookISBN.Text != null && (txtBookISBN.Text.Length < 10 || txtBookISBN.Text.Length > 10))
             {
-                MessageBox.Show("Invalid ISBN. Please try again. (MUST BE 10 CHARACTERS OR LONG)", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Extra.showWarningMessage("Invalid ISBN. Please try again. (MUST BE 10 CHARACTERS OR LONG)");
             }
             else
             {
@@ -137,7 +137,7 @@ namespace PagadLibraryDatabseWindows
 
                         if (author == txtBookAuthor.Text)
                         {
-                            MessageBox.Show($"There is already a book named {txtBookName.Text} by {txtBookAuthor.Text}. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            Extra.showWarningMessage($"There is already a book named {txtBookName.Text} by {txtBookAuthor.Text}. Please try again.");
                             return;
                         }
                         else
@@ -152,7 +152,7 @@ namespace PagadLibraryDatabseWindows
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Something went wrong. Please try again. ({ex})", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Extra.showException(ex);
                 }
                 finally
                 {
@@ -169,14 +169,7 @@ namespace PagadLibraryDatabseWindows
                     try
                     {
                         conn.Open();
-
-                        //UPDATE BOOK TABLE
-                        SqlCommand editBook = new SqlCommand("UPDATE Book SET BookName = @bookname, BookAuthor = @bookAuthor, BookISBN = @bookisbn WHERE BookID = @bookid", conn);
-
-                        editBook.Parameters.AddWithValue("@bookname", txtBookName.Text);
-                        editBook.Parameters.AddWithValue("@bookAuthor", txtBookAuthor.Text);
-                        editBook.Parameters.AddWithValue("@bookisbn", txtBookISBN.Text);
-                        editBook.Parameters.AddWithValue("@bookid", bookID);
+                        bool success = false;
 
                         //UPDATE BOOK COPY (INCREASE OR DECREASE AMOUNT)
                         if(bookCopies < txtCopyAmount.Value)
@@ -190,6 +183,8 @@ namespace PagadLibraryDatabseWindows
                                 addCopy.Parameters.AddWithValue("@bookID", bookID);
                                 addCopy.ExecuteNonQuery();
                             }
+
+                            success = true;
                         }
                         else if(bookCopies > txtCopyAmount.Value)
                         {
@@ -205,12 +200,12 @@ namespace PagadLibraryDatabseWindows
                             //IF REMOVE COPIES IS MORE THAN THE AVAILABLE COPIES (MEANING UNG MGA BOOK NA DI BORROWED NG IBANG USER), THEN ERROR...
                             if(removeCopies > availableCount)
                             {
-                                MessageBox.Show($"You cannot delete {removeCopies} copies because there are only {availableCount} available to delete.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                Extra.showWarningMessage($"You cannot delete {removeCopies} copies because there are only {availableCount} available to delete.");
                                 return;
                             }
                             else
                             {
-                                DialogResult deleteConfirmation = MessageBox.Show($"You are about to delete {removeCopies} copies. Do you want to continue?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                                DialogResult deleteConfirmation = MessageBox.Show($"You are about to delete {removeCopies} copies. Do you want to continue? (If no, other edits such as book name and author will also not be confirmed.)", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                                 if (deleteConfirmation == DialogResult.Yes)
                                 {
                                     for (int i = 0; i < removeCopies; i++)
@@ -219,21 +214,35 @@ namespace PagadLibraryDatabseWindows
                                         removeCopy.Parameters.AddWithValue("@bookID", bookID);
                                         removeCopy.ExecuteNonQuery();
                                     }
+
+                                    success = true;
                                 }
                             }
                         }
 
-                        DialogResult finishEdit = MessageBox.Show($"Book {txtBookName.Text} updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        if (finishEdit == DialogResult.OK)
+                        if (success)
                         {
-                            Extra.log($"{Session.sessionUserType} '{Session.sessionUsername}' edited book '{txtBookName.Text}'.");
-                            this.Close();
+                            //UPDATE BOOK TABLE (OTHERS)
+                            SqlCommand editBook = new SqlCommand("UPDATE Book SET BookName = @bookname, BookAuthor = @bookAuthor, BookISBN = @bookisbn WHERE BookID = @bookid", conn);
+
+                            editBook.Parameters.AddWithValue("@bookname", txtBookName.Text);
+                            editBook.Parameters.AddWithValue("@bookAuthor", txtBookAuthor.Text);
+                            editBook.Parameters.AddWithValue("@bookisbn", txtBookISBN.Text);
+                            editBook.Parameters.AddWithValue("@bookid", bookID);
+                            editBook.ExecuteNonQuery();
+
+                            DialogResult finishEdit = MessageBox.Show($"Book {txtBookName.Text} updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            if (finishEdit == DialogResult.OK)
+                            {
+                                Extra.log($"{Session.sessionUserType} '{Session.sessionUsername}' edited book '{txtBookName.Text}'.");
+                                this.Close();
+                            }
                         }
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"Something went wrong. Please try again. ({ex})", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        Extra.showException(ex);
                     }
                     finally
                     {

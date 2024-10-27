@@ -34,12 +34,14 @@
             this.btnRegisterAdmin = new System.Windows.Forms.Button();
             this.btnUserAccounts = new System.Windows.Forms.Button();
             this.pnlContainer = new System.Windows.Forms.Panel();
+            this.btnViewLogs = new System.Windows.Forms.Button();
             this.pnlMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMenu
             // 
             this.pnlMenu.BackColor = System.Drawing.Color.Sienna;
+            this.pnlMenu.Controls.Add(this.btnViewLogs);
             this.pnlMenu.Controls.Add(this.btnBack);
             this.pnlMenu.Controls.Add(this.btnEditAccount);
             this.pnlMenu.Controls.Add(this.btnRegisterAdmin);
@@ -116,6 +118,21 @@
             this.pnlContainer.Size = new System.Drawing.Size(710, 560);
             this.pnlContainer.TabIndex = 4;
             // 
+            // btnViewLogs
+            // 
+            this.btnViewLogs.BackColor = System.Drawing.Color.Sienna;
+            this.btnViewLogs.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnViewLogs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnViewLogs.Font = new System.Drawing.Font("MS PGothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewLogs.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnViewLogs.Location = new System.Drawing.Point(-5, 322);
+            this.btnViewLogs.Name = "btnViewLogs";
+            this.btnViewLogs.Size = new System.Drawing.Size(307, 80);
+            this.btnViewLogs.TabIndex = 5;
+            this.btnViewLogs.Text = "View Logs";
+            this.btnViewLogs.UseVisualStyleBackColor = false;
+            this.btnViewLogs.Click += new System.EventHandler(this.btnViewLogs_Click);
+            // 
             // AdminAccountMngmOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -140,5 +157,6 @@
         private System.Windows.Forms.Button btnRegisterAdmin;
         private System.Windows.Forms.Button btnUserAccounts;
         private System.Windows.Forms.Panel pnlContainer;
+        private System.Windows.Forms.Button btnViewLogs;
     }
 }

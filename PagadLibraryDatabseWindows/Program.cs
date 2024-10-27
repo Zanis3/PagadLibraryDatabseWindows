@@ -39,13 +39,37 @@ namespace PagadLibraryDatabseWindows
             }
             catch(Exception ex)
             {
-                MessageBox.Show($"Something went wrong. Please try again. ({ex})", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                showException(ex);
             }
             finally
             {
                 conn.Close();
             }
-        }   
+        }
+
+        //EXCEPTION
+        public static void showException (Exception ex)
+        {
+            MessageBox.Show($"Something went wrong. Please try again. ({ex.Message})", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        //WARNING MESSAGE
+        public static void showWarningMessage (string warning)
+        {
+            MessageBox.Show(warning, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        //SUCCESS MESSAGE
+        public static void showSucessMessage(string success)
+        {
+            MessageBox.Show(success, "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        //NOTICE MESSAGE
+        public static void showNoticeMessage(string notice)
+        {
+            MessageBox.Show(notice, "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 
     //SAVE SESSION DATA

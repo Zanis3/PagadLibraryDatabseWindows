@@ -59,16 +59,18 @@ namespace PagadLibraryDatabseWindows
                         reader.Close();
 
                         //UPDATE BOOK COPY TABLE
-                        SqlCommand updateBookCopy = new SqlCommand("UPDATE BookCopy SET BookCopyAvailability = @bookcopyavailability", conn);
+                        SqlCommand updateBookCopy = new SqlCommand("UPDATE BookCopy SET BookCopyAvailability = @bookcopyavailability WHERE BookCopyID = @bookcopyid", conn);
                         updateBookCopy.Parameters.AddWithValue("@bookcopyAvailability", 1);
+                        updateBookCopy.Parameters.AddWithValue("@bookcopyid", bookCopyID);
                         updateBookCopy.ExecuteNonQuery();
 
                         //UPDATE BOOK BORROW TABLE
-                        SqlCommand updateBookBorrow = new SqlCommand("UPDATE BookBorrow SET BorrowStatus = @borrowstatus", conn);
+                        SqlCommand updateBookBorrow = new SqlCommand("UPDATE BookBorrow SET BorrowStatus = @borrowstatus WHERE BookBorrowID = @bookborrowid", conn);
                         updateBookBorrow.Parameters.AddWithValue("@borrowstatus", "returned");
+                        updateBookBorrow.Parameters.AddWithValue("@bookborrowid", bookBorrowID);
                         updateBookBorrow.ExecuteNonQuery();
 
-                        DialogResult showResult = MessageBox.Show("Returned book successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        DialogResult showResult = MessageBox.Show("Returned book successfully!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         if(showResult == DialogResult.OK)
                         {
@@ -79,7 +81,7 @@ namespace PagadLibraryDatabseWindows
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Something went wrong. Please try again. ({ex})", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Extra.showException(ex);
                 }
                 finally
                 {
@@ -109,12 +111,12 @@ namespace PagadLibraryDatabseWindows
                 }
                 else
                 {
-                    MessageBox.Show("You haven't borrowed any books yet.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Extra.showNoticeMessage("You haven't borrowed any books yet.");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Something went wrong. Please try again. ({ex})", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Extra.showException(ex);
             }
             finally
             {

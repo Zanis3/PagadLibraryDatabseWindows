@@ -93,12 +93,16 @@ namespace PagadLibraryDatabseWindows
                 }
                 else
                 {
-                    MessageBox.Show("The book is not available at the moment. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Extra.showWarningMessage("The book is not available at the moment. Please try again.");
                 }
             }
             catch(Exception ex)
             {
-                MessageBox.Show($"Something went wrong. Please try again. ({ex})", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Extra.showException(ex);
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 
@@ -123,12 +127,12 @@ namespace PagadLibraryDatabseWindows
                 }
                 else
                 {
-                    MessageBox.Show("No data found.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Extra.showNoticeMessage("No data found.");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Something went wrong. Please try again. ({ex})", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Extra.showException(ex);
             }
             finally
             {

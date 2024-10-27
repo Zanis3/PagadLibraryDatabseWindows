@@ -1,14 +1,6 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.Common;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PagadLibraryDatabseWindows
@@ -57,7 +49,7 @@ namespace PagadLibraryDatabseWindows
             string searchSort = cboSearchOptions.SelectedItem?.ToString();
             if((string.IsNullOrWhiteSpace(searchQuery) || searchQuery.Length < 3) && searchSort != "BookID")
             {
-                MessageBox.Show($"Search query too short, please try again. (Length must be 3 characters or more)", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Extra.showWarningMessage("Search query too short, please try again. (Length must be 3 characters or more)");
             }
             else
             {
@@ -112,32 +104,17 @@ namespace PagadLibraryDatabseWindows
                 }
                 else
                 {
-                    MessageBox.Show("No data found.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Extra.showNoticeMessage("No data found.");
                 }
             }
             catch(Exception ex)
             {
-                MessageBox.Show($"Something went wrong. Please try again. ({ex})", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Extra.showException(ex);
             }
             finally
             {
                 conn.Close();
             }
-        }
-
-        private void tblViewBooks_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void cboSearchOptions_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtSearchBar_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

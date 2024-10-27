@@ -165,6 +165,12 @@
     <Compile Include="UCAdminViewBookExtension.Designer.cs">
       <DependentUpon>UCAdminViewBookExtension.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCAdminViewLogs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCAdminViewLogs.Designer.cs">
+      <DependentUpon>UCAdminViewLogs.cs</DependentUpon>
+    </Compile>
     <Compile Include="UCUserBorrowBook.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -238,6 +244,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCAdminViewBookExtension.resx">
       <DependentUpon>UCAdminViewBookExtension.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCAdminViewLogs.resx">
+      <DependentUpon>UCAdminViewLogs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCUserBorrowBook.resx">
       <DependentUpon>UCUserBorrowBook.cs</DependentUpon>
