@@ -119,6 +119,7 @@
             this.Name = "AdminScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminScreen";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_FormClosed);
             this.pnlAdminOptions.ResumeLayout(false);
             this.pnlAdminOptions.PerformLayout();
             this.ResumeLayout(false);

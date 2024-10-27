@@ -172,6 +172,7 @@
             this.Name = "RegisterScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RegisterScreen";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_FormClosed);
             this.pnlRegister.ResumeLayout(false);
             this.pnlRegister.PerformLayout();
             this.ResumeLayout(false);

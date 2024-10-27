@@ -145,6 +145,7 @@
             this.Name = "UserScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "User Screen";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_FormClosed);
             this.pnlMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 

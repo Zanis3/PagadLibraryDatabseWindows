@@ -20,6 +20,15 @@ namespace PagadLibraryDatabseWindows
             lblWelcomeText.Text = $"Good day, {Session.sessionUsername}!";
         }
 
+        private void Form_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                Extra.log($"{Session.sessionUserType} '{Session.sessionUsername}' has logged out their account.");
+                Application.Exit();
+            }
+        }
+
         private void btnAdminBookOptions_Click(object sender, EventArgs e)
         {
             AdminBookOptions book = new AdminBookOptions();
@@ -45,7 +54,7 @@ namespace PagadLibraryDatabseWindows
                 Session.sessionUserType = null;
                 LibraryWelcomeScreen logout = new LibraryWelcomeScreen();
                 logout.Show();
-                this.Close();
+                this.Hide();
             }
         }
     }

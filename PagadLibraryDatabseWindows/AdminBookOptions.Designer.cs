@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.pnlMenu = new System.Windows.Forms.Panel();
-            this.btnAddBook = new System.Windows.Forms.Button();
-            this.btnRemoveBook = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             this.btnViewBook = new System.Windows.Forms.Button();
             this.btnEditBook = new System.Windows.Forms.Button();
-            this.btnBack = new System.Windows.Forms.Button();
+            this.btnRemoveBook = new System.Windows.Forms.Button();
+            this.btnAddBook = new System.Windows.Forms.Button();
             this.pnlContainer = new System.Windows.Forms.Panel();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.pnlMenu.SuspendLayout();
@@ -52,35 +52,20 @@
             this.pnlMenu.Size = new System.Drawing.Size(300, 564);
             this.pnlMenu.TabIndex = 0;
             // 
-            // btnAddBook
+            // btnBack
             // 
-            this.btnAddBook.BackColor = System.Drawing.Color.Sienna;
-            this.btnAddBook.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddBook.Font = new System.Drawing.Font("MS PGothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddBook.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnAddBook.Location = new System.Drawing.Point(-7, 61);
-            this.btnAddBook.Name = "btnAddBook";
-            this.btnAddBook.Size = new System.Drawing.Size(307, 80);
-            this.btnAddBook.TabIndex = 0;
-            this.btnAddBook.Text = "Add Book";
-            this.btnAddBook.UseVisualStyleBackColor = false;
-            this.btnAddBook.Click += new System.EventHandler(this.btnAddBook_Click);
-            // 
-            // btnRemoveBook
-            // 
-            this.btnRemoveBook.BackColor = System.Drawing.Color.Sienna;
-            this.btnRemoveBook.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRemoveBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemoveBook.Font = new System.Drawing.Font("MS PGothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemoveBook.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnRemoveBook.Location = new System.Drawing.Point(-3, 148);
-            this.btnRemoveBook.Name = "btnRemoveBook";
-            this.btnRemoveBook.Size = new System.Drawing.Size(307, 80);
-            this.btnRemoveBook.TabIndex = 1;
-            this.btnRemoveBook.Text = "Remove Book";
-            this.btnRemoveBook.UseVisualStyleBackColor = false;
-            this.btnRemoveBook.Click += new System.EventHandler(this.btnRemoveBook_Click);
+            this.btnBack.BackColor = System.Drawing.Color.Firebrick;
+            this.btnBack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Font = new System.Drawing.Font("MS PGothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnBack.Location = new System.Drawing.Point(-3, 461);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(307, 80);
+            this.btnBack.TabIndex = 4;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // btnViewBook
             // 
@@ -112,20 +97,35 @@
             this.btnEditBook.UseVisualStyleBackColor = false;
             this.btnEditBook.Click += new System.EventHandler(this.btnEditBook_Click);
             // 
-            // btnBack
+            // btnRemoveBook
             // 
-            this.btnBack.BackColor = System.Drawing.Color.Firebrick;
-            this.btnBack.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.Font = new System.Drawing.Font("MS PGothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnBack.Location = new System.Drawing.Point(-3, 461);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(307, 80);
-            this.btnBack.TabIndex = 4;
-            this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = false;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            this.btnRemoveBook.BackColor = System.Drawing.Color.Sienna;
+            this.btnRemoveBook.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRemoveBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemoveBook.Font = new System.Drawing.Font("MS PGothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemoveBook.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnRemoveBook.Location = new System.Drawing.Point(-3, 148);
+            this.btnRemoveBook.Name = "btnRemoveBook";
+            this.btnRemoveBook.Size = new System.Drawing.Size(307, 80);
+            this.btnRemoveBook.TabIndex = 1;
+            this.btnRemoveBook.Text = "Remove Book";
+            this.btnRemoveBook.UseVisualStyleBackColor = false;
+            this.btnRemoveBook.Click += new System.EventHandler(this.btnRemoveBook_Click);
+            // 
+            // btnAddBook
+            // 
+            this.btnAddBook.BackColor = System.Drawing.Color.Sienna;
+            this.btnAddBook.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddBook.Font = new System.Drawing.Font("MS PGothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddBook.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnAddBook.Location = new System.Drawing.Point(-7, 61);
+            this.btnAddBook.Name = "btnAddBook";
+            this.btnAddBook.Size = new System.Drawing.Size(307, 80);
+            this.btnAddBook.TabIndex = 0;
+            this.btnAddBook.Text = "Add Book";
+            this.btnAddBook.UseVisualStyleBackColor = false;
+            this.btnAddBook.Click += new System.EventHandler(this.btnAddBook_Click);
             // 
             // pnlContainer
             // 
@@ -146,6 +146,7 @@
             this.Name = "AdminBookOptions";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminBookOptions";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_FormClosed);
             this.pnlMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 

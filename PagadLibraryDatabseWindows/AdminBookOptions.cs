@@ -25,6 +25,15 @@ namespace PagadLibraryDatabseWindows
             userControl.BringToFront();
         }
 
+        private void Form_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                Extra.log($"{Session.sessionUserType} '{Session.sessionUsername}' has logged out their account.");
+                Application.Exit();
+            }
+        }
+
         private void btnAddBook_Click(object sender, EventArgs e)
         {
             UCAdminAddBook addBook = new UCAdminAddBook();
@@ -57,7 +66,7 @@ namespace PagadLibraryDatabseWindows
             {
                 AdminScreen adminScreen = new AdminScreen();
                 adminScreen.Show();
-                this.Close();
+                this.Hide();
             }
         }
     }

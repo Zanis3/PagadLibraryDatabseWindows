@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.pnlMenu = new System.Windows.Forms.Panel();
+            this.btnViewLogs = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnEditAccount = new System.Windows.Forms.Button();
             this.btnRegisterAdmin = new System.Windows.Forms.Button();
             this.btnUserAccounts = new System.Windows.Forms.Button();
             this.pnlContainer = new System.Windows.Forms.Panel();
-            this.btnViewLogs = new System.Windows.Forms.Button();
             this.pnlMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,6 +50,21 @@
             this.pnlMenu.Name = "pnlMenu";
             this.pnlMenu.Size = new System.Drawing.Size(300, 564);
             this.pnlMenu.TabIndex = 1;
+            // 
+            // btnViewLogs
+            // 
+            this.btnViewLogs.BackColor = System.Drawing.Color.Sienna;
+            this.btnViewLogs.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnViewLogs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnViewLogs.Font = new System.Drawing.Font("MS PGothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewLogs.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnViewLogs.Location = new System.Drawing.Point(-5, 322);
+            this.btnViewLogs.Name = "btnViewLogs";
+            this.btnViewLogs.Size = new System.Drawing.Size(307, 80);
+            this.btnViewLogs.TabIndex = 5;
+            this.btnViewLogs.Text = "View Logs";
+            this.btnViewLogs.UseVisualStyleBackColor = false;
+            this.btnViewLogs.Click += new System.EventHandler(this.btnViewLogs_Click);
             // 
             // btnBack
             // 
@@ -118,21 +133,6 @@
             this.pnlContainer.Size = new System.Drawing.Size(710, 560);
             this.pnlContainer.TabIndex = 4;
             // 
-            // btnViewLogs
-            // 
-            this.btnViewLogs.BackColor = System.Drawing.Color.Sienna;
-            this.btnViewLogs.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnViewLogs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnViewLogs.Font = new System.Drawing.Font("MS PGothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewLogs.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnViewLogs.Location = new System.Drawing.Point(-5, 322);
-            this.btnViewLogs.Name = "btnViewLogs";
-            this.btnViewLogs.Size = new System.Drawing.Size(307, 80);
-            this.btnViewLogs.TabIndex = 5;
-            this.btnViewLogs.Text = "View Logs";
-            this.btnViewLogs.UseVisualStyleBackColor = false;
-            this.btnViewLogs.Click += new System.EventHandler(this.btnViewLogs_Click);
-            // 
             // AdminAccountMngmOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -144,6 +144,7 @@
             this.Name = "AdminAccountMngmOptions";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminAccountMngmOptions";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_FormClosed);
             this.pnlMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
